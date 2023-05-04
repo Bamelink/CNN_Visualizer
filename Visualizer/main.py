@@ -4,7 +4,7 @@ def main():
     img = np.array(Image.open("3.png"))
     
     # Convolve using the specified kernel, Output is an array with values between 0-255
-    conv = convolve(img, TEST_KERNEL1)
+    conv = convolve(img, TEST_KERNEL1) # See settings.py for available kernels
     
     # Show grayscaled convolution
     show_pic(np.array(conv).astype(np.uint8)) # Convert to uint8 to avoid errors
