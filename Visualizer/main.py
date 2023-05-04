@@ -35,7 +35,7 @@ def main():
     img = np.array(Image.open("3.png"))
     
     # Convolve using the specified kernel, then normalize the output to a range between 0-255
-    conv = convolve(img, HORIZONTAL_LINE_KERNEL)
+    conv = convolve(img, TEST_KERNEL1)
     conv = conv + abs(np.min(conv))
     conv = conv / np.max(conv) * 255
     
@@ -43,7 +43,7 @@ def main():
     show_pic(np.array(conv).astype(np.uint8)) # Convert to uint8 to avoid errors
     
     # Create colored picture (bgr values) from convolution -> small numbers red, large numbers green
-    bgr_array = [ [ None for y in range( np.shape(conv)[0] ) ] for x in range( np.shape(conv)[1] ) ]
+    bgr_array = [ [ None for y in range( np.shape(conv)[1] ) ] for x in range( np.shape(conv)[0] ) ]
     for ir, row in enumerate(conv):
         for ic, col in enumerate(row):
             if conv[ir][ic] < 100:
