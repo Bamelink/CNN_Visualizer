@@ -4,12 +4,14 @@ from PIL import Image
 
 
 def show_pic(p):
-        img = cv.resize(p, (600,600))
-        cv.imshow('Color image', img)
-        while True:
-            k = cv.waitKey(0) & 0xFF
-            if k == 27: break 
-        cv.destroyAllWindows()
+    img = cv.resize(p, (600,600))
+    cv.imshow('image', img)
+    while cv.getWindowProperty('image', cv.WND_PROP_VISIBLE) > 0:
+        k = cv.waitKey(0) & 0xFF # "ESC" key
+        if k == 27: 
+            break 
+    cv.destroyAllWindows()
+        
         
 
 def convolve(img,kernel):
