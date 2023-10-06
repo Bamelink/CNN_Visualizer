@@ -1,16 +1,20 @@
 import cv2 as cv
 import numpy as np
 from PIL import Image
-
+import matplotlib.pyplot as plt
 
 def show_pic(p):
-    img = cv.resize(p, (600,600))
-    cv.imshow('image', img)
-    while cv.getWindowProperty('image', cv.WND_PROP_VISIBLE) > 0:
-        k = cv.waitKey(0) & 0xFF # "ESC" key
-        if k == 27: 
-            break 
-    cv.destroyAllWindows()
+    #img = cv.resize(p, (600,600))
+    #cv.imshow('image', img)
+    #while cv.getWindowProperty('image', cv.WND_PROP_VISIBLE) > 0:
+    #    k = cv.waitKey(0) & 0xFF # "ESC" key
+    #    if k == 27: 
+    #        break 
+    #cv.destroyAllWindows()
+    
+    img = cv.cvtColor(p, cv.COLOR_BGR2RGB)
+    plt.imshow(img)
+    plt.show()
         
         
 
